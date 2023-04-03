@@ -1,0 +1,71 @@
+:root {
+  --color1: #182860;
+  --color2: #e0413d;
+  --color3: #3178C6;
+  --color4: #262626;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: #b7b7b7;
+  // for development only
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // flex-wrap: wrap;
+  // height: 100vh;
+
+}
+.progress-container {
+  // border: 1px solid #E9EBEC;
+  padding: 10px;
+}
+.progress-bar {
+  width: 500px;
+  max-width: 100%;
+  height: 3em;
+  background-color: var(--color1);
+  border-radius: 1.5em;
+  color: white;
+  position: relative;
+  margin-bottom: 30px;
+
+  &::before {
+    content: attr(data-label);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: .5em;
+    left: .5em;
+    bottom: .5em;
+    width: calc(var(--width, 0) * 1%);
+    min-width: 2rem;
+    max-width: calc(100% - 1em);
+    background-color: var(--color2);
+    border-radius: 1em;
+    padding: 1em;
+    white-space: nowrap;
+  }
+}
+
+.progress-bar.js {
+  background-color: var(--color2);
+  &::before {
+    background-color: var(--color1);
+    max-width: calc(100% - 20%);
+  }
+}
+.progress-bar.ts {
+  margin-bottom: 0;
+  background-color: var(--color3);
+  &::before {
+    background-color: var(--color4);
+    max-width: calc(100% - 40%);
+  }
+}
